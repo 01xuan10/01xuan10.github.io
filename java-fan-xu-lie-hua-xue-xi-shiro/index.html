@@ -1,0 +1,426 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Java反序列化学习-shiro - 01xuan10</title>
+<link rel="shortcut icon" href="https://01xuan10.github.io//favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://01xuan10.github.io//media/css/tailwind.css">
+<link rel="stylesheet" href="https://01xuan10.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Java反序列化学习-shiro - 01xuan10 - Atom Feed" href="https://01xuan10.github.io//atom.xml">
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DC743GYQMR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-DC743GYQMR');
+  </script>
+    
+
+  <meta name="description" content="Java反序列化简介
+1.序列化：将对象转化为字节流,便于保存
+2.反序列化：将字节流转化为对象
+在Java中，只要某个类实现了 java.io.Serialization(或者java.io.Externalizable)接口，就可以被序..." />
+  <meta property="og:title" content="Java反序列化学习-shiro - 01xuan10">
+  <meta property="og:description" content="Java反序列化简介
+1.序列化：将对象转化为字节流,便于保存
+2.反序列化：将字节流转化为对象
+在Java中，只要某个类实现了 java.io.Serialization(或者java.io.Externalizable)接口，就可以被序..." />
+  <meta property="og:type" content="articles">
+  <meta property="og:url" content="https://01xuan10.github.io/java-fan-xu-lie-hua-xue-xi-shiro/" />
+  <meta property="og:image" content="https://01xuan10.github.io//images/avatar.png">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="1200">
+  <meta name="twitter:title" content="Java反序列化学习-shiro - 01xuan10">
+  <meta name="twitter:description" content="Java反序列化简介
+1.序列化：将对象转化为字节流,便于保存
+2.反序列化：将字节流转化为对象
+在Java中，只要某个类实现了 java.io.Serialization(或者java.io.Externalizable)接口，就可以被序...">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://01xuan10.github.io/java-fan-xu-lie-hua-xue-xi-shiro/">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+ 
+  
+
+  
+</head>
+
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
+    <a href="https://01xuan10.github.io/" class="fixed top-0 left-0 mt-4 bg-black text-white dark:text-gray-700 dark:bg-yellow-50 dark:hover:bg-black dark:hover:text-white inline-flex p-2 pl-8 hover:text-gray-700 hover:bg-yellow-50 font-bold z-10 transition-fast animated fadeInLeft">
+      01xuan10
+    </a>
+    <div class="max-w-4xl w-full mx-auto">
+      <div class="shadow-box bg-white dark:bg-gray-600 rounded-lg pt-32 md:pt-64 px-4 md:px-8 pb-8 animated fadeIn mb-8">
+        <h1 class="text-5xl font-semibold leading-normal pb-8 mb-8 border-b-8 border-gray-700">
+          Java反序列化学习-shiro
+        </h1>
+        
+        <div class="mb-8 flex flex-wrap">
+          <div class="text-gray-400 text-sm mr-4">2022-10-27 · 5 min read</div>
+          
+            <a href="https://01xuan10.github.io/X0qOqOJcm/" class="text-gray-700 text-sm border-b-2 border-dotted border-gray-200 hover:border-gray-600 transition-all duration-100 inline-flex mr-2">
+              <i class="ri-hashtag"></i>
+              Java
+            </a>
+          
+            <a href="https://01xuan10.github.io/Ox_Fhl_m3B/" class="text-gray-700 text-sm border-b-2 border-dotted border-gray-200 hover:border-gray-600 transition-all duration-100 inline-flex mr-2">
+              <i class="ri-hashtag"></i>
+              Shiro
+            </a>
+          
+        </div>
+        <div class="markdown mb-8" v-pre>
+          <h2 id="java反序列化简介">Java反序列化简介</h2>
+<p>1.序列化：将对象转化为字节流,便于保存<br>
+2.反序列化：将字节流转化为对象<br>
+在Java中，只要某个类实现了 <code>java.io.Serialization</code>(或者<code>java.io.Externalizable</code>)接口，就可以被序列化。</p>
+<h2 id="一个简单的demo">一个简单的DEMO</h2>
+<p>创建一个简单的People类<code>People.java</code>，添加两个属性，并实现<code>java.io.Serialization</code>接口。</p>
+<pre><code>import java.io.IOException;
+import java.io.Serializable;
+
+public class People implements Serializable {
+    public String name;
+    public int age;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+</code></pre>
+<p>然后新建一个<code>Test.java</code>，给两个属性赋值然后将序列化的文件反序列化出来。</p>
+<pre><code>import java.io.*;
+
+public class Test {
+    public static void main(String[] args) throws Exception{
+//        初始化对象
+        People people = new People();
+        people.setName(&quot;xiaoming&quot;);
+        people.setAge(18);
+
+//        序列化步骤
+//        1。创建一个ObjectOutputStream输出流
+//        2。调用ObjectOutputStream对象的writeObject输出可序列化对象
+        ObjectOutputStream oss = new ObjectOutputStream(new FileOutputStream(new File(&quot;./People.txt&quot;)));
+        oss.writeObject(people);
+        System.out.println(&quot;People对象序列化成功&quot;);
+
+//        反序列化步骤
+//        1。创建一个ObjectInputStream输入流
+//        2。调用ObjectInputStream对象的readObject()得到序列化的对象
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(&quot;./People.txt&quot;)));
+        People people1 = (People) ois.readObject();
+        System.out.println(&quot;people对象反序列化成功&quot;);
+        System.out.println(people1.getName());
+        System.out.println(people1.getAge());
+    }
+}
+</code></pre>
+<p>运行可以看到已经成功序列化和反序列化<br>
+<img src="https://01xuan10.github.io//post-images/1667374542694.png" alt="" loading="lazy"><br>
+打开People.txt可以看到被序列化到文件里面的内容<br>
+<img src="https://01xuan10.github.io//post-images/1667374632370.png" alt="" loading="lazy"><br>
+然后在People.txt中加入一下方法，重写People类的readObject()方法</p>
+<pre><code>    //添加以下方法，重写People类的readObject()方法
+    private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException{
+        //执行默认的readObject()方法
+        in.defaultReadObject();
+        //执行打开计算器程序命令
+        Runtime.getRuntime().exec(&quot;open /System/Applications/Calculator.app&quot;);
+    }
+</code></pre>
+<p>然后重新运行Test.java可以看到我们重写的方法已经生效，成功的在反序列化的过程中打开了本地的计算器软件<br>
+<img src="https://01xuan10.github.io//post-images/1667374934215.png" alt="" loading="lazy"></p>
+<h2 id="分析shiro反序列化漏洞cve-2016-4437">分析Shiro反序列化漏洞（CVE-2016-4437）</h2>
+<h3 id="apache-shiro介绍">apache shiro介绍</h3>
+<p>Apache Shiro是一个开源安全框架，提供身份验证、授权、密码学和会话管理。在Apache Shiro &lt;= 1.2.4版本中存在反序列化漏洞。</p>
+<p>Shiro的“记住我”功能是设置cookie中的rememberMe值来实现。当后端接收到来自未经身份验证的用户的请求时，它将通过执行以下操作来寻找他们记住的身份：</p>
+<p>1.检索cookie中RememberMe的值<br>
+2.Base64解码<br>
+3.使用AES解密<br>
+4.反序列化<br>
+漏洞原因在于第三步，AES加解密的密钥是写死在代码中的，于是我们可以构造RememberMe的值，然后让其反序列化执行。</p>
+<h3 id="漏洞分析">漏洞分析</h3>
+<p>下载好代码之后打开pom.xml文件，将版本设置为1.2</p>
+<pre><code>&lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+            &lt;!--  这里需要将jstl设置为1.2 --&gt;
+            &lt;version&gt;1.2&lt;/version&gt;
+            &lt;scope&gt;runtime&lt;/scope&gt;
+        &lt;/dependency&gt;
+ &lt;dependency&gt;
+</code></pre>
+<p>倒入项目，等待idea自动下载倒入项目依赖包，接着设置<code>run/debug configurations</code>,添加本地tomcat环境<br>
+<img src="https://01xuan10.github.io//post-images/1668581439785.png" alt="" loading="lazy"></p>
+<h3 id="漏洞debug">漏洞debug</h3>
+<p>首先定位RememberMe值的加密过程。在<code>org.apache.shiro.mgt.AbstractRememberMeManager#onSuccessfulLogin</code>处下断点，然后点击debug开启tomcat服务<br>
+<img src="https://01xuan10.github.io//post-images/1668581920055.png" alt="" loading="lazy"><br>
+使用任意账号登陆系统，但是一定要记得勾选RememberMe选项，程序执行到断点处就会停止<br>
+<img src="https://01xuan10.github.io//post-images/1668582068724.png" alt="" loading="lazy"></p>
+<pre><code>    public void onSuccessfulLogin(Subject subject, AuthenticationToken token, AuthenticationInfo info) {
+        this.forgetIdentity(subject);  //处理request和response常规字段，包括生成cookie
+        if (this.isRememberMe(token)) {    //判断是否勾选RememberMe
+            this.rememberIdentity(subject, token, info);  //如果勾选则生成cookie中的remember的值
+        } else if (log.isDebugEnabled()) {
+            log.debug(&quot;AuthenticationToken did not indicate RememberMe is requested.  RememberMe functionality will not be executed for corresponding account.&quot;);
+        }
+
+    }
+</code></pre>
+<p>首先调用forgetIdentity构造方法来处理request和response请求，包括在response中加入cookie信息，然后调用rememberIdentity函数，来处理cookie中的remember字段<br>
+<img src="https://01xuan10.github.io//post-images/1668582676082.png" alt="" loading="lazy"></p>
+
+        </div>
+        <!-- Share to Twitter, Weibo, Telegram -->
+        <div class="flex items-center">
+          <div class="mr-4 flex items-center">
+            <i class="ri-share-forward-line text-gray-500"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-blue-500 hover:bg-blue-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTwitter">
+            <i class="ri-twitter-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-red-500 hover:bg-red-100 dark:hover:bg-gray-600 inline-flex" @click="shareToWeibo">
+            <i class="ri-weibo-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTelegram">
+            <i class="ri-telegram-line"></i>
+          </div>
+        </div>
+      </div>
+
+      
+
+      
+        <div id="vlaine-comment"></div>
+      
+
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+      <div>
+        Powered by <a
+                href="https://github.com/01xuan10" target="_blank">01xuan10 | <a href="https://01xuan10.github.io//atom.xml" target="_blank">RSS</a></a>
+    </div>
+</footer>
+    </div>
+
+    <!-- TOC Container -->
+    <div class="fixed right-0 bottom-0 mb-16 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white dark:bg-gray-500 dark:text-gray-200 hover:shadow-lg transition-all animated fadeInRight" @click="showToc = true">
+      <i class="ri-file-list-line"></i>
+    </div>
+
+    <div class="fixed right-0 top-0 bottom-0 overflow-y-auto w-64 bg-white dark:bg-gray-800 p-4 border-l border-gray-100 dark:border-gray-600 z-10 transition-fast" :class="{ '-mr-64': !showToc }">
+      <div class="flex mb-4 justify-end">
+        <div class="w-8 h-8 inline-flex justify-center items-center rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast" @click="showToc = false">
+          <i class="ri-close-line text-lg"></i>
+        </div>
+      </div>
+      <div class="post-toc-container">
+        <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#java%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E7%AE%80%E4%BB%8B">Java反序列化简介</a></li>
+<li><a href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84demo">一个简单的DEMO</a></li>
+<li><a href="#%E5%88%86%E6%9E%90shiro%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9Ecve-2016-4437">分析Shiro反序列化漏洞（CVE-2016-4437）</a>
+<ul>
+<li><a href="#apache-shiro%E4%BB%8B%E7%BB%8D">apache shiro介绍</a></li>
+<li><a href="#%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90">漏洞分析</a></li>
+<li><a href="#%E6%BC%8F%E6%B4%9Edebug">漏洞debug</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    </div>
+
+    <!-- Back to top -->
+    <div class="fixed right-0 bottom-0 mb-4 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white hover:shadow-lg transition-all dark:bg-gray-500 dark:text-gray-200" @click="backToUp" v-show="scrolled">
+      <i class="ri-arrow-up-line"></i>
+    </div>
+  </div>
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- Background of PhotoSwipe. 
+        It's a separate element as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg">
+  </div>
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+    <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <!--  Controls are self-explanatory. Order can be changed. -->
+        <div class="pswp__counter">
+        </div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+        <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+        <!-- element will get class pswp__preloader--active when preloader is running -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip">
+        </div>
+      </div>
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+      </button>
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+      </button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://01xuan10.github.io//media/scripts/main.js"></script>
+  
+  <!-- Code Highlight -->
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+  <script>
+    //拿到预览框架，也就是上面的html代码
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    //定义图片数组变量
+    var imgitems;
+    /**
+    * 用于显示预览界面
+    * @param index 图片数组下标
+    */
+    function viewImg(index) {
+      //其它选项这里不做过多阐述，详情见官网
+      var pswpoptions = {
+        index: parseInt(index, 10), // 开始幻灯片索引。0是第一张幻灯片。必须是整数，而不是字符串。
+        bgOpacity: 0.7, // 背景透明度，0-1
+        maxSpreadZoom: 3, // 缩放级别，不要太大
+      };
+      //初始化并打开PhotoSwipe，pswpElement对应上面预览框架，PhotoSwipeUI_Default为皮肤，imgitems为图片数组，pswpoptions为选项
+      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, imgitems, pswpoptions);
+      gallery.init()
+    }
+    /**
+    * 用于添加图片点击事件
+    * @param img 图片元素
+    * @param index 所属下标（在imgitems中的位置）
+    */
+    function addImgClick(img, index) {
+      img.onclick = function() {
+        viewImg(index)
+      }
+    }
+    /**
+    * 轮询所有图片，获取src、width、height等数据，加入imgitems，并给图片元素添加事件
+    * 最好在onload中执行该方法，本站因放在最底部，所以直接初始化
+    * 异步加载图片可在图片元素创建完成后调用此方法
+    */
+    function initImg() {
+      //重置图片数组
+      imgitems = [];
+      //查找class:markdown 下的所有img元素并遍历
+      var imgs = document.querySelectorAll('.markdown img');
+      for (var i = 0; i < imgs.length; i++) {
+        var img = imgs[i];
+        //本站相册初始为loading图片，真实图片放在data-src
+        var ds = img.getAttribute("data-src");
+        //创建image对象，用于获取图片宽高
+        var imgtemp = new Image();
+        //判断是否存在data-src
+        if (ds != null && ds.length > 0) {
+          imgtemp.src = ds
+        } else {
+          imgtemp.src = img.src
+        }
+        //判断是否存在缓存
+        if (imgtemp.complete) {
+          var imgobj = {
+            "src": imgtemp.src,
+            "w": imgtemp.width,
+            "h": imgtemp.height,
+          };
+          imgitems[i] = imgobj;
+          addImgClick(img, i);
+        } else {
+          console.log('进来了2')
+          imgtemp.index = i;
+          imgtemp.img = img;
+          imgtemp.onload = function() {
+            var imgobj = {
+              "src": this.src,
+              "w": this.width,
+              "h": this.height,
+            };
+            //不要使用push，因为onload前后顺序会不同
+            imgitems[this.index] = imgobj
+            //添加点击事件
+            addImgClick(this.img, this.index);
+          }
+        }
+      }
+    }
+    //初始化
+    initImg();
+  </script>
+  
+    <script type="application/javascript" src="https://unpkg.com/valine"></script>
+<script type="application/javascript">
+  new Valine({
+    el: '#vlaine-comment',
+    appId: 'kVMmUrXbX9h6HsWrIesr5oK7-gzGzoHsz',
+    appKey: 'cceJ72vlftmeuZlce7DgvHlZ',
+    pageSize: 10,
+    notify: true,
+    avatar: 'mp',
+    verify: true,
+    placeholder: '来都来了，不妨评论一下',
+    visitor: true,
+    highlight: true,
+    recordIP: true,
+  })
+</script>
+  
+  
+</body>
+
+</html>
