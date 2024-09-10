@@ -1,0 +1,406 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>免杀和CS服务器隐藏&lt;入门&gt; - 01xuan10</title>
+<link rel="shortcut icon" href="https://01xuan10.github.io//favicon.ico">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css">
+<link rel="stylesheet" href="https://01xuan10.github.io//media/css/tailwind.css">
+<link rel="stylesheet" href="https://01xuan10.github.io//styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="免杀和CS服务器隐藏&lt;入门&gt; - 01xuan10 - Atom Feed" href="https://01xuan10.github.io//atom.xml">
+
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DC743GYQMR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-DC743GYQMR');
+  </script>
+    
+
+  <meta name="description" content="检测手段
+首先要夸一下咱们的安全厂家，如果没有这些安全厂家我们现在挖漏洞也不至于这么费劲。既然说是红蓝对抗，所以重点就在这个对抗的过程，在过去的这些年里，由于安全厂家的“赶鸭子上架”红队也出现了各种逃过杀软查杀的方式。
+1.基于特征码检测
+..." />
+  <meta property="og:title" content="免杀和CS服务器隐藏&lt;入门&gt; - 01xuan10">
+  <meta property="og:description" content="检测手段
+首先要夸一下咱们的安全厂家，如果没有这些安全厂家我们现在挖漏洞也不至于这么费劲。既然说是红蓝对抗，所以重点就在这个对抗的过程，在过去的这些年里，由于安全厂家的“赶鸭子上架”红队也出现了各种逃过杀软查杀的方式。
+1.基于特征码检测
+..." />
+  <meta property="og:type" content="articles">
+  <meta property="og:url" content="https://01xuan10.github.io/mian-sha-he-cs-fu-wu-qi-yin-cang-lessru-men-greater/" />
+  <meta property="og:image" content="https://01xuan10.github.io//images/avatar.png">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:width" content="1200">
+  <meta name="twitter:title" content="免杀和CS服务器隐藏&lt;入门&gt; - 01xuan10">
+  <meta name="twitter:description" content="检测手段
+首先要夸一下咱们的安全厂家，如果没有这些安全厂家我们现在挖漏洞也不至于这么费劲。既然说是红蓝对抗，所以重点就在这个对抗的过程，在过去的这些年里，由于安全厂家的“赶鸭子上架”红队也出现了各种逃过杀软查杀的方式。
+1.基于特征码检测
+...">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://01xuan10.github.io/mian-sha-he-cs-fu-wu-qi-yin-cang-lessru-men-greater/">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css">
+ 
+  
+
+  
+</head>
+
+<body>
+  <div class="antialiased flex flex-col min-h-screen" id="app">
+    <a href="https://01xuan10.github.io/" class="fixed top-0 left-0 mt-4 bg-black text-white dark:text-gray-700 dark:bg-yellow-50 dark:hover:bg-black dark:hover:text-white inline-flex p-2 pl-8 hover:text-gray-700 hover:bg-yellow-50 font-bold z-10 transition-fast animated fadeInLeft">
+      01xuan10
+    </a>
+    <div class="max-w-4xl w-full mx-auto">
+      <div class="shadow-box bg-white dark:bg-gray-600 rounded-lg pt-32 md:pt-64 px-4 md:px-8 pb-8 animated fadeIn mb-8">
+        <h1 class="text-5xl font-semibold leading-normal pb-8 mb-8 border-b-8 border-gray-700">
+          免杀和CS服务器隐藏&lt;入门&gt;
+        </h1>
+        
+        <div class="mb-8 flex flex-wrap">
+          <div class="text-gray-400 text-sm mr-4">2022-10-27 · 9 min read</div>
+          
+            <a href="https://01xuan10.github.io/3RlX2JuHe/" class="text-gray-700 text-sm border-b-2 border-dotted border-gray-200 hover:border-gray-600 transition-all duration-100 inline-flex mr-2">
+              <i class="ri-hashtag"></i>
+              CS
+            </a>
+          
+        </div>
+        <div class="markdown mb-8" v-pre>
+          <h2 id="检测手段">检测手段</h2>
+<p>首先要夸一下咱们的安全厂家，如果没有这些安全厂家我们现在挖漏洞也不至于这么费劲。既然说是红蓝对抗，所以重点就在这个对抗的过程，在过去的这些年里，由于安全厂家的“赶鸭子上架”红队也出现了各种逃过杀软查杀的方式。</p>
+<h3 id="1基于特征码检测">1.基于特征码检测</h3>
+<p>​		特征码检测机制虽然比较远古但也是一直沿用至今的手段，可以简单理解为提取病毒的特征&lt;例如MD5、样本IOC、签名&gt;存入杀毒软件的特征库进行匹配，若匹配有文件与恶意样本的特征码一致，则认为该文件为恶意文件。</p>
+<p>​		此种检测手段虽然匹配精准，但是如果病毒存在变种就比较难以检测，所以开始从最开始的文件特征匹配过度到恶意的代码片段的特征匹配，针对一个样本中的特定代码片段做匹配，大大提高抗病毒变种的能力。至此，安全厂商口中的“未知病毒检测”横空出世？</p>
+<h3 id="2基于文件分析">2.基于文件分析</h3>
+<h4 id="21静态分析">2.1静态分析</h4>
+<p>​		顾名思义，静态文件分析就是在不运行程序的情况下对文件进行分析，对样本中的危险函数和有害的代码片段进行识别。但是通过对恶意代码进行加密、混淆之后就可以绕过这种分析方式。</p>
+<h4 id="22动态分析">2.2动态分析</h4>
+<p>​		同理，动态分析就是运行恶意程序样本，观察样本在运行之后在操作系统上的行为。因为测试系统设置在隔离的封闭环境中，所以运行病毒不会在真实的物理环境中造成破坏，Windows本地沙箱和各种云沙箱就是最好的技术实践。动态分析的绕过就需要有一个不被杀软检测到的自解密机制，阻止杀软执行解密程序*。或者是使用一个无文件落地的病毒，这样可以做到在受害者机器上运行的程序中不包含恶意代码，在运行过程中再进行远程恶意代码的加载。</p>
+<h4 id="23启发式分析">2.3启发式分析*</h4>
+<h5 id="231静态启发式分析">2.3.1静态启发式分析</h5>
+<p>静态启发技术指的是在静止状态下通过病毒的典型指令特征识别病毒的方法，是对传统特征码扫描的一种补充。由于病毒程序与正常的应用程序在启动时有很多区别，通常一个应用程序在最初的指令，是检查命令行输入有无参数项、清屏和保存原来屏幕显示等，而病毒程序则通常是最初的指令是直接写盘操作、解码指令，或搜索某路径下的可执行程序等相关操作指令序列。</p>
+<h5 id="232动态启发式分析">2.3.2动态启发式分析</h5>
+<p>而相比静态启发技术，动态启发技术要复杂和先进很多。动态启发式通过杀软内置的虚拟机技术，给病毒构建一个仿真的运行环境，诱使病毒在杀软的模拟缓冲区中运行，如运行过程中检测到可疑的动作，则判定为危险程序并进行拦截。这种方法更有助于识别未知病毒，对加壳病毒依然有效，但如果控制得不好，会出现较多误报的情况。</p>
+<h2 id="cs服务器隐藏">CS服务器隐藏</h2>
+<p>​		本文提到的免杀主要针对的是CS的免杀，既然要提到CS免杀，不得不先说一说CS的服务端也就是teamserver的隐藏，因为如果直接按照默认配置部署的话会导致被安全设备检测出特征从而导致被查杀。</p>
+<p>​		大部分安全从业者从各个渠道或者出于安全考虑获得的CS软件都是使用GitHub开源项目CSAgent启动的，也就是官方的主程序cobaltstrike.jar放入CSAgent文件夹中，然后使用脚本启动主程序。文件树大致如下</p>
+<pre><code class="language-bash">CSAgent
+├── CSAgent.jar
+├── agscript
+├── c2lint
+├── cloudflare.profile
+├── cobaltstrike
+├── cobaltstrike.bat
+├── cobaltstrike.jar
+├── cobaltstrike.store
+├── cs
+│   └── cobaltstrike.jar
+├── jquery-c2.4.4.profile
+├── move-process.cna
+├── opt
+│   └── cobaltstrike
+│       ├── SMB_Staged_Payloads
+│       ├── SMB_Stageless_Payloads
+│       ├── Staged_Payloads
+│       └── Stageless_Payloads
+├── peclone
+├── resources
+│   ├── bdetails.txt
+│   ├── bhelp.txt
+│   └── translation.txt
+├── scripts
+│   └── default.cna
+└── teamserver
+</code></pre>
+<p>​		问题就出现在如果使用GitHub中提供的teamserver，就会产生默认的特征信息，从而被安全设备识别，比如默认提供的teamserver会检测本地有没有存在cobaltstrike.store，若不存在会自动生成一个证书信息为Microsoft的证书，再比如说默认的监听端口。</p>
+<pre><code class="language-bash"># 默认提供teamserver文件中证书生成逻辑
+# generate a certificate
+	# naturally you're welcome to replace this step with your own permanent certificate.
+	# just make sure you pass -Djavax.net.ssl.keyStore=&quot;/path/to/whatever&quot; and
+	# -Djavax.net.ssl.keyStorePassword=&quot;password&quot; to java. This is used for setting up
+	# an SSL server socket. Also, the SHA-1 digest of the first certificate in the store
+	# is printed so users may have a chance to verify they're not being owned.
+if [ -e ./cobaltstrike.store ]; then
+	print_info &quot;Will use existing X509 certificate and keystore (for SSL)&quot;
+else
+	print_info &quot;Generating X509 certificate and keystore (for SSL)&quot;
+	keytool -keystore ./cobaltstrike.store -storepass Microsoft -keypass Microsoft -genkey -keyalg RSA -alias Microsoft-cacert -dname &quot;CN=*.microsoft.com, OU=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=WA, C=US&quot;
+fi
+
+# start the team server.
+java -XX:ParallelGCThreads=4 -Dcobaltstrike.server_port=50050 -Dcobaltstrike.server_bindto=0.0.0.0 -Djavax.net.ssl.keyStore=./cobaltstrike.store -Djavax.net.ssl.keyStorePassword=Microsoft -server -XX:+AggressiveHeap -XX:+UseParallelGC -classpath ./cobaltstrike.jar -javaagent:CSAgent.jar=5e98194a01c6b48fa582a6a9fcbb92d6 -Duser.language=en server.TeamServer $*
+
+</code></pre>
+<h3 id="隐藏cs服务器">隐藏CS服务器</h3>
+<p>​		现在比较主流的或者说流传的比较广的做法就是利用CDN，将域名指向VPS，使用CDN生成或是自己生成一个证书，以防止teamserver启动时自动生成默认证书，然后根据域名创建一个listener，这样就会隐藏CS的真实服务器地址。这样可以有效的方式蓝队成员在溯源时找到我们的真实服务器IP地址。但是这缺少了一个重要的环节，就是虽然我们修改了teamserver的基本特征，但是我们teamserver和受害者之间连接或者远控时，会产生请求包和响应包，这部分数据如果默认的话也是会被安全设备抓到特征，所以就有了<code>*.profile</code>这个文件，这个文件可以控制服务器和受害者之间传输的数据包内容，从而更进一步的减少特征。当然该文件的作用不只是控制数据包，还有其他很多配置项.例如<code>https://github.com/threatexpress/malleable-c2</code>这个项目就是将通信过程伪造成请求jquery。使用者也可以根据自己想要伪造的数据包去进行DIY。</p>
+<p>​		顺便介绍一下agscript这个脚本，这个不起眼的小脚本在teamserver启动后是可以作为一个用户进行登录的，理论上在客户端做的事情，他都能实现，<code>./agscript [host] [port] [user] [pass] &lt;/path/to/file.cna&gt;</code>，我么可以控制file.cna让这个用户挂载不同的脚本，然后通过脚本去实现一些受害者上线之后 的默认操作，比如说结合通知推送平台server酱或pushplus和python脚本制作一个上线自动通知的机器人，或者制作一个上线自动进程迁移的脚本，进程注入到系统软件中。</p>
+<p>​		以上操作和功能经作者亲身验证都是切实可行的，但是为什么没有大量的配置过程截图和成果截图，因为VPS被封了！！！我的小儿科操作被VPS厂商发现了。</p>
+<p>​		所以经过一轮思考之后，之后的技术实践想使用NPS+上面这套流程试试VPS厂家还能不能检测到。</p>
+<h2 id="简单说下我使用的免杀生成器和实践成果">简单说下我使用的免杀生成器和实践成果</h2>
+<p>​		其实能绕过常见的杀软检测手段就可以做到基本的免杀，<code>https://github.com/Gality369/CS-Loader</code>这是一个免杀生成的开源项目，个人感觉这个过程比较符合绕过一下杀软的标准思路。</p>
+<p>​		大致的使用流程就是：</p>
+<p>1.使用CS自己的模块生成一个C的payload</p>
+<p>2.将payload通过python和你自定义的key进行加密，然后和一张图片生成图片马</p>
+<p>3.找一个不会压缩图片的图床把图片马上传上去</p>
+<p>4.将图片马的地址和key填入go文件中生成最终的exe</p>
+<p>​		然后就会得到一个可以过火绒和Windows Defender实时检测的面杀马，配合之前的设置可以做到CDN上线，机器人企业微信通知和自动进程迁移。</p>
+<p>​		可以看到连续的两个上线通知，第一个是恶意exe的上线通知，第二个是进程迁移之后会开启一个新的session。</p>
+<img src="https://s1.ax1x.com/2022/05/31/X3fvsx.jpg" alt="IMG_28D989991C9A-1" style="zoom:33%;" />
+        </div>
+        <!-- Share to Twitter, Weibo, Telegram -->
+        <div class="flex items-center">
+          <div class="mr-4 flex items-center">
+            <i class="ri-share-forward-line text-gray-500"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-blue-500 hover:bg-blue-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTwitter">
+            <i class="ri-twitter-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-red-500 hover:bg-red-100 dark:hover:bg-gray-600 inline-flex" @click="shareToWeibo">
+            <i class="ri-weibo-line"></i>
+          </div>
+          <div class="px-4 cursor-pointer text-indigo-500 hover:bg-indigo-100 dark:hover:bg-gray-600 inline-flex" @click="shareToTelegram">
+            <i class="ri-telegram-line"></i>
+          </div>
+        </div>
+      </div>
+
+      
+
+      
+        <div id="vlaine-comment"></div>
+      
+
+      <footer class="py-12 text-center px-4 md:px-0" v-pre>
+      <div>
+        Powered by <a
+                href="https://github.com/01xuan10" target="_blank">01xuan10 | <a href="https://01xuan10.github.io//atom.xml" target="_blank">RSS</a></a>
+    </div>
+</footer>
+    </div>
+
+    <!-- TOC Container -->
+    <div class="fixed right-0 bottom-0 mb-16 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white dark:bg-gray-500 dark:text-gray-200 hover:shadow-lg transition-all animated fadeInRight" @click="showToc = true">
+      <i class="ri-file-list-line"></i>
+    </div>
+
+    <div class="fixed right-0 top-0 bottom-0 overflow-y-auto w-64 bg-white dark:bg-gray-800 p-4 border-l border-gray-100 dark:border-gray-600 z-10 transition-fast" :class="{ '-mr-64': !showToc }">
+      <div class="flex mb-4 justify-end">
+        <div class="w-8 h-8 inline-flex justify-center items-center rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-600 transition-fast" @click="showToc = false">
+          <i class="ri-close-line text-lg"></i>
+        </div>
+      </div>
+      <div class="post-toc-container">
+        <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E6%A3%80%E6%B5%8B%E6%89%8B%E6%AE%B5">检测手段</a>
+<ul>
+<li><a href="#1%E5%9F%BA%E4%BA%8E%E7%89%B9%E5%BE%81%E7%A0%81%E6%A3%80%E6%B5%8B">1.基于特征码检测</a></li>
+<li><a href="#2%E5%9F%BA%E4%BA%8E%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90">2.基于文件分析</a>
+<ul>
+<li><a href="#21%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90">2.1静态分析</a></li>
+<li><a href="#22%E5%8A%A8%E6%80%81%E5%88%86%E6%9E%90">2.2动态分析</a></li>
+<li><a href="#23%E5%90%AF%E5%8F%91%E5%BC%8F%E5%88%86%E6%9E%90">2.3启发式分析*</a>
+<ul>
+<li><a href="#231%E9%9D%99%E6%80%81%E5%90%AF%E5%8F%91%E5%BC%8F%E5%88%86%E6%9E%90">2.3.1静态启发式分析</a></li>
+<li><a href="#232%E5%8A%A8%E6%80%81%E5%90%AF%E5%8F%91%E5%BC%8F%E5%88%86%E6%9E%90">2.3.2动态启发式分析</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#cs%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%9A%90%E8%97%8F">CS服务器隐藏</a>
+<ul>
+<li><a href="#%E9%9A%90%E8%97%8Fcs%E6%9C%8D%E5%8A%A1%E5%99%A8">隐藏CS服务器</a></li>
+</ul>
+</li>
+<li><a href="#%E7%AE%80%E5%8D%95%E8%AF%B4%E4%B8%8B%E6%88%91%E4%BD%BF%E7%94%A8%E7%9A%84%E5%85%8D%E6%9D%80%E7%94%9F%E6%88%90%E5%99%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%88%90%E6%9E%9C">简单说下我使用的免杀生成器和实践成果</a></li>
+</ul>
+</li>
+</ul>
+
+      </div>
+    </div>
+
+    <!-- Back to top -->
+    <div class="fixed right-0 bottom-0 mb-4 mr-4 shadow w-8 h-8 rounded-full flex justify-center items-center z-10 cursor-pointer bg-white hover:shadow-lg transition-all dark:bg-gray-500 dark:text-gray-200" @click="backToUp" v-show="scrolled">
+      <i class="ri-arrow-up-line"></i>
+    </div>
+  </div>
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+  <!-- Background of PhotoSwipe. 
+        It's a separate element as animating opacity is faster than rgba(). -->
+  <div class="pswp__bg">
+  </div>
+  <!-- Slides wrapper with overflow:hidden. -->
+  <div class="pswp__scroll-wrap">
+    <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+    <div class="pswp__container">
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+      <div class="pswp__item">
+      </div>
+    </div>
+    <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+    <div class="pswp__ui pswp__ui--hidden">
+      <div class="pswp__top-bar">
+        <!--  Controls are self-explanatory. Order can be changed. -->
+        <div class="pswp__counter">
+        </div>
+        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+        <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+        <!-- element will get class pswp__preloader--active when preloader is running -->
+        <div class="pswp__preloader">
+          <div class="pswp__preloader__icn">
+            <div class="pswp__preloader__cut">
+              <div class="pswp__preloader__donut">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+        <div class="pswp__share-tooltip">
+        </div>
+      </div>
+      <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+      </button>
+      <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+      </button>
+      <div class="pswp__caption">
+        <div class="pswp__caption__center">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://01xuan10.github.io//media/scripts/main.js"></script>
+  
+  <!-- Code Highlight -->
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+  <script>
+    //拿到预览框架，也就是上面的html代码
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+    //定义图片数组变量
+    var imgitems;
+    /**
+    * 用于显示预览界面
+    * @param index 图片数组下标
+    */
+    function viewImg(index) {
+      //其它选项这里不做过多阐述，详情见官网
+      var pswpoptions = {
+        index: parseInt(index, 10), // 开始幻灯片索引。0是第一张幻灯片。必须是整数，而不是字符串。
+        bgOpacity: 0.7, // 背景透明度，0-1
+        maxSpreadZoom: 3, // 缩放级别，不要太大
+      };
+      //初始化并打开PhotoSwipe，pswpElement对应上面预览框架，PhotoSwipeUI_Default为皮肤，imgitems为图片数组，pswpoptions为选项
+      var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, imgitems, pswpoptions);
+      gallery.init()
+    }
+    /**
+    * 用于添加图片点击事件
+    * @param img 图片元素
+    * @param index 所属下标（在imgitems中的位置）
+    */
+    function addImgClick(img, index) {
+      img.onclick = function() {
+        viewImg(index)
+      }
+    }
+    /**
+    * 轮询所有图片，获取src、width、height等数据，加入imgitems，并给图片元素添加事件
+    * 最好在onload中执行该方法，本站因放在最底部，所以直接初始化
+    * 异步加载图片可在图片元素创建完成后调用此方法
+    */
+    function initImg() {
+      //重置图片数组
+      imgitems = [];
+      //查找class:markdown 下的所有img元素并遍历
+      var imgs = document.querySelectorAll('.markdown img');
+      for (var i = 0; i < imgs.length; i++) {
+        var img = imgs[i];
+        //本站相册初始为loading图片，真实图片放在data-src
+        var ds = img.getAttribute("data-src");
+        //创建image对象，用于获取图片宽高
+        var imgtemp = new Image();
+        //判断是否存在data-src
+        if (ds != null && ds.length > 0) {
+          imgtemp.src = ds
+        } else {
+          imgtemp.src = img.src
+        }
+        //判断是否存在缓存
+        if (imgtemp.complete) {
+          var imgobj = {
+            "src": imgtemp.src,
+            "w": imgtemp.width,
+            "h": imgtemp.height,
+          };
+          imgitems[i] = imgobj;
+          addImgClick(img, i);
+        } else {
+          console.log('进来了2')
+          imgtemp.index = i;
+          imgtemp.img = img;
+          imgtemp.onload = function() {
+            var imgobj = {
+              "src": this.src,
+              "w": this.width,
+              "h": this.height,
+            };
+            //不要使用push，因为onload前后顺序会不同
+            imgitems[this.index] = imgobj
+            //添加点击事件
+            addImgClick(this.img, this.index);
+          }
+        }
+      }
+    }
+    //初始化
+    initImg();
+  </script>
+  
+    <script type="application/javascript" src="https://unpkg.com/valine"></script>
+<script type="application/javascript">
+  new Valine({
+    el: '#vlaine-comment',
+    appId: 'kVMmUrXbX9h6HsWrIesr5oK7-gzGzoHsz',
+    appKey: 'cceJ72vlftmeuZlce7DgvHlZ',
+    pageSize: 10,
+    notify: true,
+    avatar: 'mp',
+    verify: true,
+    placeholder: '来都来了，不妨评论一下',
+    visitor: true,
+    highlight: true,
+    recordIP: true,
+  })
+</script>
+  
+  
+</body>
+
+</html>
