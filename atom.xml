@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://01xuan10.github.io/</id>
+    <title>01xuan10</title>
+    <updated>2024-10-11T06:16:43.827Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://01xuan10.github.io/"/>
+    <link rel="self" href="https://01xuan10.github.io/atom.xml"/>
+    <logo>https://01xuan10.github.io/images/avatar.png</logo>
+    <icon>https://01xuan10.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2024, 01xuan10</rights>
+    <entry>
+        <title type="html"><![CDATA[关于arm ida9.0 crack之后无法正常打开的问题]]></title>
+        <id>https://01xuan10.github.io/40Y3sWU3hJ/</id>
+        <link href="https://01xuan10.github.io/40Y3sWU3hJ/">
+        </link>
+        <updated>2024-10-11T06:13:01.000Z</updated>
+        <content type="html"><![CDATA[<p><code>rm /Applications/IDA\ Professional\ 9.0.app/Contents/MacOS/plugins/arm_mac_user64.dylib</code><br>
+安装完成之后直接打开软件会有一个30016的报错，删除这个文件之后可以正常打开软件<br>
+然后运行crack.py文件之后生成两个新的文件，但这个时候打开ida会直接报错。要先执行下面两条命令给patch后的文件进行签名<br>
+<code>sudo codesign --force --deep --sign - /Applications/IDA\ Professional\ 9.0.app/Contents/MacOS/libida.dylib</code></p>
+<p><code>sudo codesign --force --deep --sign - /Applications/IDA\ Professional\ 9.0.app/Contents/MacOS/libida64.dylib</code></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[密码相关硬件设备作用]]></title>
+        <id>https://01xuan10.github.io/dsMibABzv/</id>
+        <link href="https://01xuan10.github.io/dsMibABzv/">
+        </link>
+        <updated>2023-04-03T01:20:09.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="服务器密码机">服务器密码机</h2>
+<h3 id="简介">简介</h3>
+<p>服务器密码机是服务端密码运算设备，提供密钥生成、数字签名、签名验证、数据加密、数据解密等通用密码服务功能，即在密钥作用下，实现明文和密文的变换或者密文和明文变换的装置。能独立或并行为多个应用实体提供密码运算、密钥管理等功能的设备。</p>
+<h3 id="工作原理">工作原理</h3>
+<p>服务器密码机可为各类应用提供非对称/对成加解密运算、完整性校验、真随机数生成、密钥生成和管理等服务，确保用户对数据的随机性、真实性、完整性和有效性。密码机可以独立为应用系统提供高性能的数据加/解密服务，也可以作为身份认证系统、密钥密码管理系统等系统的主要密码设备和核心构件。具有广泛的系统应用潜力。</p>
+<h2 id="签名验签服务器">签名验签服务器</h2>
+<h3 id="简介-2">简介</h3>
+<p>签名验签服务器又称为数字签名服务器，是对各种类型的电子数据给出基于数字证书的数字签名服务，并向签名数据验证其签名的真实性与有效性的专用服务器。签名验签服务器可以为广泛的现代服务业提供安全的金融支付与电子交易业务服务。</p>
+<h3 id="产品介绍">产品介绍</h3>
+<p>签名验签服务器是一款为关键业务系统提供基于<code>PKI</code>体系架构的签名验签设备。</p>
+<pre><code>PKI &lt;Public Key Infrastructure&gt;，公开密钥基础设施，
+也就是利用公开密钥机制建立起来的基础设施，用于保护不同计算机系统之间的通信
+
+PKI为保护通信有两件事
+身份验证：确保另一方是你要与之通信的合法服务器或者个人。
+信息加密：确保没有其他方可以阅读你的通信甚至篡改你的通信。
+</code></pre>
+<p>支持国密SM2算法和国际通用RSA算法的数字签名/验签<br>
+支持国密SM2算法的数字信封制作和解封<br>
+支持数字证书的查询、验证、解析等功能<br>
+可为应用系统提供身份真实性、数据保密性、数据完整性和操作行为不可抵赖等安全保障行为</p>
+<h2 id="动态令牌认证">动态令牌认证</h2>
+<h3 id="简介-3">简介</h3>
+<p>令牌可以使用用户证明自己的身份后获取受保护资源的访问权。令牌会产生一个随机但专用与某个用户的动态口令，其数字只有对指定用户在特定的时刻有效。用户的静态密码+令牌的动态口令，使得用户的电子身份很难被模仿、盗用或破坏</p>
+<h3 id="工作原理-2">工作原理</h3>
+<p>令牌可以使用户证明自己的身份后获得受保护资源的访问权。令牌会产生一个随机但专用于某个用户的动态口令，其数字只有对指定用户在特定的时刻有效。用户的静态密码＋令牌的动态口令，使得用户的电子身份很难被模仿、盗用或破坏。对每个用户不同时间的口令，都是随机的，均匀分布在输出范围内。同一令牌的相邻产生的动态口令之间没有相关性，不可能从前一个口令推导出后一个口令。令牌生成的是无法预知的动态口令，并且是一次性的，故花大量时间截获的口令对黑客没有任何用处。</p>
+<p>对于“基于时间序列的动态密码认证”技术而言，其实现机理如下：在初始阶段，分别在服务器端和客户端安装好相同的种子，采用时间同步技术实现动态口令认证，每分钟产生一个动态密码，并显示在硬件令牌的显示屏上，而且该动态密码使用后立即失效，不可重复使用。</p>
+<p>动态令牌的产生因子一般都采用双因素因子：其一，为用户的私有密钥，他是代表用户身份的识别码。是固定不变的；其二，为变动因子，正是变动因子的不断变化，才产生了不断变化的动态口令。采用不同的变动因子，形成了不同的动态口令认证技术，基于时间同步认证技术、基于事件同步认证技术</p>
+<p>基于时间同步认证技术是把时间作为变动因子，一般以60秒作为变化单位。所谓“同步”是指用户口令卡认证服务器所产生的口令在时间上必须同步。这里的时间同步方法不是用“时间统一”技术，而是用“漂移窗口”技术</p>
+<p>基于事件同步认证技术是把变动的数字序列(事件序列)作为口令产生器的一个运算因子，与用户的私有密钥共同产生动态口令。这里的同步是指每次认证时，认证服务器与令牌保持相同的事件序列。如果用户使用时，因操作失误多产生了几组口令出现不同步，服务器会自动同步到目前使用的口令，一旦一个口令被使用过后，在口令序列中所有这个口令之前的口令都会失效。其认证过程与时间同步认证相同</p>
+<p>基于时间同步认证技术的令牌密码只在一分钟内有效，较好的体现了技术的安全性，规避了大部分安全隐患。而基于事件同步认证技术存在着被人偷窥的密码可能长时间有效，而产生较大的安全隐患。当前，市场上使用最多的是时间同步认证技术，它既能在大型网上银行系统和电子商务系统中应用，也能在内部网中应用。由于时间同步技术动态令牌产生的新口令，不可预测，并只能使用一次;由于密钥加密存放在服务器和口令卡中，且不在网络中传输，所以，时间同步技术动态口令不怕被人偷看，不怕网络“黑客”的网络窃听，不怕“重放攻击”，不能猜测，不易破解，具有强身份认证的特征，具有较高的安全性和使用的方便性。近年来，随着网络安全事件的大幅度上升，动态口令身份认证系统越来越受到青睐</p>
+<p>动态令牌应用使用非常简单，不改变网上银行用户现有使用习惯，通常不需要客户服务支持即可完成应用的登录，方便用户使用，有效地体现了安全性和可用性的平衡</p>
+<p>动态令牌应用可以非常方便地嵌入已有应用系统，无需添加额外的访问设备。通过提供的调用接口，可轻易实现与网上银行服务的无缝集成。系统相对独立，接口简单，易与现有的应用系统连接，对正在运行的应用系统仅需做极小改动。采用专用认证服务器进行认证，保障现有应用系统的完整性，保护系统资源。系统也具有非常强的可扩展性与升级能力，能够提供足够的扩展空间以适应不断发展的应用需求。动态令牌应用是当前网上银行安全应用在安全性和便利性有效结合的最终实现</p>
+<h2 id="ipsec">IPsec</h2>
+<h3 id="简介-4">简介</h3>
+<p>IPsec（Internet Protocol Security）是为IP网络提供安全性的协议和服务的集合，它是VPN（Virtual Private Network，虚拟专用网）中常用的一种技术。 由于IP报文本身没有集成任何安全特性，IP数据包在公用网络如Internet中传输可能会面临被伪造、窃取或篡改的风险。通信双方通过IPsec建立一条IPsec隧道，IP数据包通过IPsec隧道进行加密传输，有效保证了数据在不安全的网络环境如Internet中传输的安全性。</p>
+<h3 id="工作原理-3">工作原理</h3>
+<h4 id="识别流">识别流</h4>
+<p>识别“感兴趣流”。网络设备接收到报文后，通常会将报文的五元组等信息和IPsec策略进行匹配来判断报文是否要通过IPsec隧道传输，需要通过IPsec隧道传输的流量通常被称为“感兴趣流”。</p>
+<h4 id="协商安全联盟">协商安全联盟</h4>
+<p>协商安全联盟（Security Association，以下简称SA）。SA是通信双方对某些协商要素的约定，比如双方使用的安全协议、数据传输采用的封装模式、协议采用的加密和验证算法、用于数据传输的密钥等，通信双方之间只有建立了SA，才能进行安全的数据传输。<br>
+识别出感兴趣流后，本端网络设备会向对端网络设备发起SA协商。在这一阶段，通信双方之间通过IKE协议先协商建立IKE SA（用于身份验证和密钥信息交换），然后在IKE SA的基础上协商建立IPsec SA（用于数据安全传输）。</p>
+<h4 id="数据传输">数据传输</h4>
+<p>IPsec SA建立成功后，双方就可以通过IPsec隧道传输数据了。<br>
+IPsec为了保证数据传输的安全性，在这一阶段需要通过AH或ESP协议对数据进行加密和验证。加密机制保证了数据的机密性，防止数据在传输过程中被窃取；验证机制保证了数据的真实可靠，防止数据在传输过程中被仿冒和篡改。</p>
+<p>如图所示，IPsec发送方会使用加密算法和加密密钥对报文进行加密，即将原始数据“乔装打扮”封装起来。然后发送方和接收方分别通过相同的验证算法和验证密钥对加密后的报文进行处理得到完整性校验值ICV。如果两端计算的ICV相同则表示该报文在传输过程中没有被篡改，接收方对验证通过的报文进行解密处理；如果ICV不相同则直接丢弃报文。<br>
+<img src="https://01xuan10.github.io//post-images/1680505742287.png" alt="" loading="lazy"></p>
+<h4 id="隧道拆除">隧道拆除</h4>
+<p>通常情况下，通信双方之间的会话老化（连接断开）即代表通信双方数据交换已经完成，因此为了节省系统资源，通信双方之间的隧道在空闲时间达到一定值后会自动删除。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[010editor 保持试用]]></title>
+        <id>https://01xuan10.github.io/dErCuV0k8/</id>
+        <link href="https://01xuan10.github.io/dErCuV0k8/">
+        </link>
+        <updated>2023-02-09T01:38:09.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="保持试用">保持试用</h2>
+<p>关键文件为 <code>~/.config/SweetScape/010 Editor.ini</code>，无法使用的时侯可以把这个文件清空，将恢复30天试用状态，<br>
+或者简单粗暴的将文件设置为只读。</p>
+<p><code>chmod 444 &quot;010 Editor.ini&quot;</code><br>
+用IDA逆向的时侯没有发现这个文件比较奇怪。这个文件是 是使用strace命令发现的，strace命令支持 -e 的过<br>
+滤参数将有效减少输出，一般来说看strace日志文件可以从最后往前看。</p>
+<p><code>strace -e trace=file ./010editor</code><br>
+从代码上看有使用网络验证需要在hosts文件中屏敝两个网站， 可以减少一些不必要的麻烦。</p>
+<p><code>127.0.0.1 www.sweetscape.com</code><br>
+<code>127.0.0.1 www.010editor.com</code><br>
+我现在已经是注册用户了，在很长的一段时间内，这方法是管用的，做个备忘。</p>
+<h2 id="补充">补充：</h2>
+<p>之前github上的那个开源keygen还能用，或者就用<br>
+<code>user    user</code><br>
+<code>pass    3470D4AC7CEFACD9297A</code><br>
+只是hosts更改可能不够，windows上用wf.msc阻止010 Editor联网，Linux好像没有简单办法阻止特定进程联网，<br>
+只能变相利用uid、gid达成目的。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2022 CTF WriteUp]]></title>
+        <id>https://01xuan10.github.io/FQ-sJl0v2/</id>
+        <link href="https://01xuan10.github.io/FQ-sJl0v2/">
+        </link>
+        <updated>2022-11-09T14:57:47.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="签到">签到</h2>
+<h3 id="test01">test01</h3>
+<p>下载txt打开<br>
+flag{12a14364-e270-c652-f8b7-b7aaf237214e}</p>
+<h3 id="test02">test02</h3>
+<p>打开环境直接访问web<br>
+<img src="https://01xuan10.github.io//post-images/1667574521423.png" alt="" loading="lazy"><br>
+flag{376b8725-7f94-6696-a67a-f6e631b7116b}</p>
+<h3 id="签到-2">签到</h3>
+<p>启动环境后，打开页面，没有发现flag，直接查看网页源代码发现flag<br>
+<img src="https://01xuan10.github.io//post-images/1667889143373.png" alt="" loading="lazy"></p>
+<h2 id="misc">misc</h2>
+<h3 id="im-et">I'm ET</h3>
+<p>使用binwalk分析有没有隐藏文件发现没有隐藏文件，所以用stegsolve打开，发现blue0通道有一个提示<br>
+<img src="https://01xuan10.github.io//post-images/1667888580736.png" alt="" loading="lazy"><br>
+用010Editor打开文件，这里因为mac版报错所以改用Windows虚拟机，发现HEX中文件头中标识bmp文件为32位，但是下方的模版结果为24位，所以将这个值改为32位<br>
+<img src="https://01xuan10.github.io//post-images/1667888765408.png" alt="" loading="lazy"><br>
+然后继续使用stegsolve打开查看之前提示blue0的通道，在Data Extract中发现了PK关键字，这是zip文件的文件头<br>
+<img src="https://01xuan10.github.io//post-images/1667888876733.png" alt="" loading="lazy"><br>
+将这个zip文件单独提取出来，解压发现有密码，用010Editor查看发现为zip伪加密，将HEX改为00<br>
+<img src="https://01xuan10.github.io//post-images/1667888983650.png" alt="" loading="lazy"><br>
+解压得到flag</p>
+<h3 id="wwin">WWIN</h3>
+<p>下载并解压附件之后用wireshark打开<br>
+<img src="https://01xuan10.github.io//post-images/1667888177601.png" alt="" loading="lazy"><br>
+追踪流和搜索flag字段都没有结果，所以打开导出html文件发现有一条记录比其他的大<br>
+<img src="https://01xuan10.github.io//post-images/1667888248117.png" alt="" loading="lazy"><br>
+下载后用浏览器打开发现有一条<code>echo</code>文件的记录<br>
+<img src="https://01xuan10.github.io//post-images/1667888418125.png" alt="" loading="lazy"><br>
+使用base64解码后得到flag</p>
+<h3 id="find_you_flag">find_you_flag</h3>
+<p>用<code>binwalk flag</code>发现文件中有iso9660文件，以为是需要挂载Linux然后进行下一步分析<br>
+<img src="https://01xuan10.github.io//post-images/1667613482400.png" alt="" loading="lazy"><br>
+将文件分离出现了一个<code>E62EC.iso</code>文件，但是用Linux挂载和软碟通软件均无法读取。<br>
+没有头绪的时候又开始使用010Editor开始分析，搜索flag发现4001个，结果太多，无法甄别，感觉应该不是这个方向分析。<br>
+<img src="https://01xuan10.github.io//post-images/1667613827277.png" alt="" loading="lazy"><br>
+然后通过翻阅资料最终感觉是一道考内存取证的题目，安装<code>volatility</code>，是一款开源内存取证框架，能够对导出的内存镜像进行分析，通过获取内核数据结构，使用插件获取内存的详细情况以及系统的运行状态。<br>
+使用<code>volatility -f flag imageinfo</code>查看镜像信息，其中可以看到软件猜测的系统版本为<code>WinXPSP2x86</code><br>
+<img src="https://01xuan10.github.io//post-images/1667614234021.png" alt="" loading="lazy"><br>
+然后使用<code>volatility -f flag --profile=WinXPSP2x86 pslist</code>查看内存中运行的程序，发现中间有<code>ctfmon.exe</code>,<code>cmd.exe</code>起初怀疑这两个程序内存中有相关线索<br>
+<img src="https://01xuan10.github.io//post-images/1667614384639.png" alt="" loading="lazy"><br>
+可以使用<code>volatility -f flag --profile=WinXPSP2x86 memdump -p PID号 --dump-dir=./</code>将内存dump出来，放入010Editor中分析，大小均达到八九十兆，所以也放弃了<br>
+然后使用<code>volatility -f flag --profile=WinXPSP2x86 filescan | grep flag</code>进行文件搜索，然后过滤关键字flag，发现桌面上有flag.7z文件<br>
+<img src="https://01xuan10.github.io//post-images/1667615271239.png" alt="" loading="lazy"><br>
+使用<code>volatility -f flag --profile=WinXPSP2x86 dumpfiles -Q 0x0000000001609628 --dump-dir=./</code>命令dump出flag.7z文件<br>
+<img src="https://01xuan10.github.io//post-images/1667615526100.png" alt="" loading="lazy"><br>
+打开文件发现文件头是7z，和桌面的文件名符合所以直接将dump下的文件名后缀改为7z<br>
+<img src="https://01xuan10.github.io//post-images/1667616017242.png" alt="" loading="lazy"><br>
+使用压缩软件发现需要解压密码<br>
+<img src="https://01xuan10.github.io//post-images/1667616115438.png" alt="" loading="lazy"><br>
+所以现在的难点是开始寻找解压密码，回过头翻了以下pslist，发现里面有<code>explorer.exe</code>资源管理器，怀疑里面应该有线索，但是突然发现可以读取剪贴板，所以打算先读取剪贴板看一下，如果没有线索就dump文件资源管理器<br>
+使用<code>volatility -f flag --profile=WinXPSP2x86 clipboard</code>读取剪贴板，发现有一条有数据的记录<br>
+<img src="https://01xuan10.github.io//post-images/1667616662748.png" alt="" loading="lazy"><br>
+使用该记录当作解压密码然后成功解压出flag.txt<br>
+<img src="https://01xuan10.github.io//post-images/1667617050209.png" alt="" loading="lazy"><br>
+flag{Th1s_1s_2oo_4a3y}</p>
+<h2 id="reverse">reverse</h2>
+<h3 id="1000click">1000click</h3>
+<p>ida64打开直接字符串搜索flag<br>
+<img src="https://01xuan10.github.io//post-images/1667574394127.png" alt="" loading="lazy"><br>
+flag{TIBntXVbdZ4Z9VRtoOQ2wRlvDNIjQ8Ra}</p>
+<h3 id="xxxorrr">xxxorrr</h3>
+<p>ida64打开，字符串表看一下有没有什么线索<br>
+<img src="https://01xuan10.github.io//post-images/1667574644942.png" alt="" loading="lazy"><br>
+猜测这串字符跟flag有关，查看引用<br>
+<img src="https://01xuan10.github.io//post-images/1667574704138.png" alt="" loading="lazy"><br>
+有三个函数引用了，逐个查看</p>
+<pre><code>unsigned __int64 sub_84A()
+{
+  signed int i; // [rsp+Ch] [rbp-14h]
+  unsigned __int64 v2; // [rsp+18h] [rbp-8h]
+
+  v2 = __readfsqword(0x28u);
+  for ( i = 0; i &lt;= 33; ++i )
+    s1[i] ^= 2 * i + 65;
+  return __readfsqword(0x28u) ^ v2;
+}
+</code></pre>
+<pre><code>unsigned __int64 sub_916()
+{
+  unsigned __int64 v1; // [rsp+8h] [rbp-8h]
+
+  v1 = __readfsqword(0x28u);
+  if ( !strcmp(s1, s2) )
+    puts(&quot;Congratulations!&quot;);
+  else
+    puts(&quot;Wrong!&quot;);
+  return __readfsqword(0x28u) ^ v1;
+}
+</code></pre>
+<pre><code>__int64 __fastcall main(__int64 a1, char **a2, char **a3)
+{
+  signed int i; // [rsp+Ch] [rbp-34h]
+  char s[40]; // [rsp+10h] [rbp-30h]
+  unsigned __int64 v6; // [rsp+38h] [rbp-8h]
+
+  v6 = __readfsqword(0x28u);
+  sub_A90(sub_916, a2, a3);
+  fgets(s, 35, stdin);
+  for ( i = 0; i &lt;= 33; ++i )
+    s1[i] ^= s[i];
+  return 0LL;
+}
+</code></pre>
+<p>可以看到对s1（“qasxcytgsasxcvrefghnrfghnjedfgbhn”)处理了两次</p>
+<pre><code> for ( i = 0; i &lt;= 33; ++i )
+    s1[i] ^= 2 * i + 65;
+
+for ( i = 0; i &lt;= 33; ++i )
+    s1[i] ^= s[i];
+</code></pre>
+<p>由此可得：</p>
+<pre><code>s2=[ 0x56, 0x4E, 0x57, 0x58, 0x51, 0x51, 0x09, 0x46, 0x17, 0x46, 
+  0x54, 0x5A, 0x59, 0x59, 0x1F, 0x48, 0x32, 0x5B, 0x6B, 0x7C, 
+  0x75, 0x6E, 0x7E, 0x6E, 0x2F, 0x77, 0x4F, 0x7A, 0x71, 0x43, 
+  0x2B, 0x26, 0x89, 0xFE, 0x00]
+s1 = 'qasxcytgsasxcvrefghnrfghnjedfgbhn'
+for i in range(0,33):
+ 	print(chr(ord(s1[i])^ (2 * i + 65)^s2[i]),end='')
+</code></pre>
+<p>flag{c0n5truct0r5_functi0n_in_41f}</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Java反序列化学习-shiro]]></title>
+        <id>https://01xuan10.github.io/java-fan-xu-lie-hua-xue-xi-shiro/</id>
+        <link href="https://01xuan10.github.io/java-fan-xu-lie-hua-xue-xi-shiro/">
+        </link>
+        <updated>2022-10-27T08:23:51.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="java反序列化简介">Java反序列化简介</h2>
+<p>1.序列化：将对象转化为字节流,便于保存<br>
+2.反序列化：将字节流转化为对象<br>
+在Java中，只要某个类实现了 <code>java.io.Serialization</code>(或者<code>java.io.Externalizable</code>)接口，就可以被序列化。</p>
+<h2 id="一个简单的demo">一个简单的DEMO</h2>
+<p>创建一个简单的People类<code>People.java</code>，添加两个属性，并实现<code>java.io.Serialization</code>接口。</p>
+<pre><code>import java.io.IOException;
+import java.io.Serializable;
+
+public class People implements Serializable {
+    public String name;
+    public int age;
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+</code></pre>
+<p>然后新建一个<code>Test.java</code>，给两个属性赋值然后将序列化的文件反序列化出来。</p>
+<pre><code>import java.io.*;
+
+public class Test {
+    public static void main(String[] args) throws Exception{
+//        初始化对象
+        People people = new People();
+        people.setName(&quot;xiaoming&quot;);
+        people.setAge(18);
+
+//        序列化步骤
+//        1。创建一个ObjectOutputStream输出流
+//        2。调用ObjectOutputStream对象的writeObject输出可序列化对象
+        ObjectOutputStream oss = new ObjectOutputStream(new FileOutputStream(new File(&quot;./People.txt&quot;)));
+        oss.writeObject(people);
+        System.out.println(&quot;People对象序列化成功&quot;);
+
+//        反序列化步骤
+//        1。创建一个ObjectInputStream输入流
+//        2。调用ObjectInputStream对象的readObject()得到序列化的对象
+        ObjectInputStream ois = new ObjectInputStream(new FileInputStream(new File(&quot;./People.txt&quot;)));
+        People people1 = (People) ois.readObject();
+        System.out.println(&quot;people对象反序列化成功&quot;);
+        System.out.println(people1.getName());
+        System.out.println(people1.getAge());
+    }
+}
+</code></pre>
+<p>运行可以看到已经成功序列化和反序列化<br>
+<img src="https://01xuan10.github.io//post-images/1667374542694.png" alt="" loading="lazy"><br>
+打开People.txt可以看到被序列化到文件里面的内容<br>
+<img src="https://01xuan10.github.io//post-images/1667374632370.png" alt="" loading="lazy"><br>
+然后在People.txt中加入一下方法，重写People类的readObject()方法</p>
+<pre><code>    //添加以下方法，重写People类的readObject()方法
+    private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException{
+        //执行默认的readObject()方法
+        in.defaultReadObject();
+        //执行打开计算器程序命令
+        Runtime.getRuntime().exec(&quot;open /System/Applications/Calculator.app&quot;);
+    }
+</code></pre>
+<p>然后重新运行Test.java可以看到我们重写的方法已经生效，成功的在反序列化的过程中打开了本地的计算器软件<br>
+<img src="https://01xuan10.github.io//post-images/1667374934215.png" alt="" loading="lazy"></p>
+<h2 id="分析shiro反序列化漏洞cve-2016-4437">分析Shiro反序列化漏洞（CVE-2016-4437）</h2>
+<h3 id="apache-shiro介绍">apache shiro介绍</h3>
+<p>Apache Shiro是一个开源安全框架，提供身份验证、授权、密码学和会话管理。在Apache Shiro &lt;= 1.2.4版本中存在反序列化漏洞。</p>
+<p>Shiro的“记住我”功能是设置cookie中的rememberMe值来实现。当后端接收到来自未经身份验证的用户的请求时，它将通过执行以下操作来寻找他们记住的身份：</p>
+<p>1.检索cookie中RememberMe的值<br>
+2.Base64解码<br>
+3.使用AES解密<br>
+4.反序列化<br>
+漏洞原因在于第三步，AES加解密的密钥是写死在代码中的，于是我们可以构造RememberMe的值，然后让其反序列化执行。</p>
+<h3 id="漏洞分析">漏洞分析</h3>
+<p>下载好代码之后打开pom.xml文件，将版本设置为1.2</p>
+<pre><code>&lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+            &lt;!--  这里需要将jstl设置为1.2 --&gt;
+            &lt;version&gt;1.2&lt;/version&gt;
+            &lt;scope&gt;runtime&lt;/scope&gt;
+        &lt;/dependency&gt;
+ &lt;dependency&gt;
+</code></pre>
+<p>倒入项目，等待idea自动下载倒入项目依赖包，接着设置<code>run/debug configurations</code>,添加本地tomcat环境<br>
+<img src="https://01xuan10.github.io//post-images/1668581439785.png" alt="" loading="lazy"></p>
+<h3 id="漏洞debug">漏洞debug</h3>
+<p>首先定位RememberMe值的加密过程。在<code>org.apache.shiro.mgt.AbstractRememberMeManager#onSuccessfulLogin</code>处下断点，然后点击debug开启tomcat服务<br>
+<img src="https://01xuan10.github.io//post-images/1668581920055.png" alt="" loading="lazy"><br>
+使用任意账号登陆系统，但是一定要记得勾选RememberMe选项，程序执行到断点处就会停止<br>
+<img src="https://01xuan10.github.io//post-images/1668582068724.png" alt="" loading="lazy"></p>
+<pre><code>    public void onSuccessfulLogin(Subject subject, AuthenticationToken token, AuthenticationInfo info) {
+        this.forgetIdentity(subject);  //处理request和response常规字段，包括生成cookie
+        if (this.isRememberMe(token)) {    //判断是否勾选RememberMe
+            this.rememberIdentity(subject, token, info);  //如果勾选则生成cookie中的remember的值
+        } else if (log.isDebugEnabled()) {
+            log.debug(&quot;AuthenticationToken did not indicate RememberMe is requested.  RememberMe functionality will not be executed for corresponding account.&quot;);
+        }
+
+    }
+</code></pre>
+<p>首先调用forgetIdentity构造方法来处理request和response请求，包括在response中加入cookie信息，然后调用rememberIdentity函数，来处理cookie中的remember字段<br>
+<img src="https://01xuan10.github.io//post-images/1668582676082.png" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[免杀和CS服务器隐藏<入门>]]></title>
+        <id>https://01xuan10.github.io/mian-sha-he-cs-fu-wu-qi-yin-cang-lessru-men-greater/</id>
+        <link href="https://01xuan10.github.io/mian-sha-he-cs-fu-wu-qi-yin-cang-lessru-men-greater/">
+        </link>
+        <updated>2022-10-27T02:05:27.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="检测手段">检测手段</h2>
+<p>首先要夸一下咱们的安全厂家，如果没有这些安全厂家我们现在挖漏洞也不至于这么费劲。既然说是红蓝对抗，所以重点就在这个对抗的过程，在过去的这些年里，由于安全厂家的“赶鸭子上架”红队也出现了各种逃过杀软查杀的方式。</p>
+<h3 id="1基于特征码检测">1.基于特征码检测</h3>
+<p>​		特征码检测机制虽然比较远古但也是一直沿用至今的手段，可以简单理解为提取病毒的特征&lt;例如MD5、样本IOC、签名&gt;存入杀毒软件的特征库进行匹配，若匹配有文件与恶意样本的特征码一致，则认为该文件为恶意文件。</p>
+<p>​		此种检测手段虽然匹配精准，但是如果病毒存在变种就比较难以检测，所以开始从最开始的文件特征匹配过度到恶意的代码片段的特征匹配，针对一个样本中的特定代码片段做匹配，大大提高抗病毒变种的能力。至此，安全厂商口中的“未知病毒检测”横空出世？</p>
+<h3 id="2基于文件分析">2.基于文件分析</h3>
+<h4 id="21静态分析">2.1静态分析</h4>
+<p>​		顾名思义，静态文件分析就是在不运行程序的情况下对文件进行分析，对样本中的危险函数和有害的代码片段进行识别。但是通过对恶意代码进行加密、混淆之后就可以绕过这种分析方式。</p>
+<h4 id="22动态分析">2.2动态分析</h4>
+<p>​		同理，动态分析就是运行恶意程序样本，观察样本在运行之后在操作系统上的行为。因为测试系统设置在隔离的封闭环境中，所以运行病毒不会在真实的物理环境中造成破坏，Windows本地沙箱和各种云沙箱就是最好的技术实践。动态分析的绕过就需要有一个不被杀软检测到的自解密机制，阻止杀软执行解密程序*。或者是使用一个无文件落地的病毒，这样可以做到在受害者机器上运行的程序中不包含恶意代码，在运行过程中再进行远程恶意代码的加载。</p>
+<h4 id="23启发式分析">2.3启发式分析*</h4>
+<h5 id="231静态启发式分析">2.3.1静态启发式分析</h5>
+<p>静态启发技术指的是在静止状态下通过病毒的典型指令特征识别病毒的方法，是对传统特征码扫描的一种补充。由于病毒程序与正常的应用程序在启动时有很多区别，通常一个应用程序在最初的指令，是检查命令行输入有无参数项、清屏和保存原来屏幕显示等，而病毒程序则通常是最初的指令是直接写盘操作、解码指令，或搜索某路径下的可执行程序等相关操作指令序列。</p>
+<h5 id="232动态启发式分析">2.3.2动态启发式分析</h5>
+<p>而相比静态启发技术，动态启发技术要复杂和先进很多。动态启发式通过杀软内置的虚拟机技术，给病毒构建一个仿真的运行环境，诱使病毒在杀软的模拟缓冲区中运行，如运行过程中检测到可疑的动作，则判定为危险程序并进行拦截。这种方法更有助于识别未知病毒，对加壳病毒依然有效，但如果控制得不好，会出现较多误报的情况。</p>
+<h2 id="cs服务器隐藏">CS服务器隐藏</h2>
+<p>​		本文提到的免杀主要针对的是CS的免杀，既然要提到CS免杀，不得不先说一说CS的服务端也就是teamserver的隐藏，因为如果直接按照默认配置部署的话会导致被安全设备检测出特征从而导致被查杀。</p>
+<p>​		大部分安全从业者从各个渠道或者出于安全考虑获得的CS软件都是使用GitHub开源项目CSAgent启动的，也就是官方的主程序cobaltstrike.jar放入CSAgent文件夹中，然后使用脚本启动主程序。文件树大致如下</p>
+<pre><code class="language-bash">CSAgent
+├── CSAgent.jar
+├── agscript
+├── c2lint
+├── cloudflare.profile
+├── cobaltstrike
+├── cobaltstrike.bat
+├── cobaltstrike.jar
+├── cobaltstrike.store
+├── cs
+│   └── cobaltstrike.jar
+├── jquery-c2.4.4.profile
+├── move-process.cna
+├── opt
+│   └── cobaltstrike
+│       ├── SMB_Staged_Payloads
+│       ├── SMB_Stageless_Payloads
+│       ├── Staged_Payloads
+│       └── Stageless_Payloads
+├── peclone
+├── resources
+│   ├── bdetails.txt
+│   ├── bhelp.txt
+│   └── translation.txt
+├── scripts
+│   └── default.cna
+└── teamserver
+</code></pre>
+<p>​		问题就出现在如果使用GitHub中提供的teamserver，就会产生默认的特征信息，从而被安全设备识别，比如默认提供的teamserver会检测本地有没有存在cobaltstrike.store，若不存在会自动生成一个证书信息为Microsoft的证书，再比如说默认的监听端口。</p>
+<pre><code class="language-bash"># 默认提供teamserver文件中证书生成逻辑
+# generate a certificate
+	# naturally you're welcome to replace this step with your own permanent certificate.
+	# just make sure you pass -Djavax.net.ssl.keyStore=&quot;/path/to/whatever&quot; and
+	# -Djavax.net.ssl.keyStorePassword=&quot;password&quot; to java. This is used for setting up
+	# an SSL server socket. Also, the SHA-1 digest of the first certificate in the store
+	# is printed so users may have a chance to verify they're not being owned.
+if [ -e ./cobaltstrike.store ]; then
+	print_info &quot;Will use existing X509 certificate and keystore (for SSL)&quot;
+else
+	print_info &quot;Generating X509 certificate and keystore (for SSL)&quot;
+	keytool -keystore ./cobaltstrike.store -storepass Microsoft -keypass Microsoft -genkey -keyalg RSA -alias Microsoft-cacert -dname &quot;CN=*.microsoft.com, OU=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=WA, C=US&quot;
+fi
+
+# start the team server.
+java -XX:ParallelGCThreads=4 -Dcobaltstrike.server_port=50050 -Dcobaltstrike.server_bindto=0.0.0.0 -Djavax.net.ssl.keyStore=./cobaltstrike.store -Djavax.net.ssl.keyStorePassword=Microsoft -server -XX:+AggressiveHeap -XX:+UseParallelGC -classpath ./cobaltstrike.jar -javaagent:CSAgent.jar=5e98194a01c6b48fa582a6a9fcbb92d6 -Duser.language=en server.TeamServer $*
+
+</code></pre>
+<h3 id="隐藏cs服务器">隐藏CS服务器</h3>
+<p>​		现在比较主流的或者说流传的比较广的做法就是利用CDN，将域名指向VPS，使用CDN生成或是自己生成一个证书，以防止teamserver启动时自动生成默认证书，然后根据域名创建一个listener，这样就会隐藏CS的真实服务器地址。这样可以有效的方式蓝队成员在溯源时找到我们的真实服务器IP地址。但是这缺少了一个重要的环节，就是虽然我们修改了teamserver的基本特征，但是我们teamserver和受害者之间连接或者远控时，会产生请求包和响应包，这部分数据如果默认的话也是会被安全设备抓到特征，所以就有了<code>*.profile</code>这个文件，这个文件可以控制服务器和受害者之间传输的数据包内容，从而更进一步的减少特征。当然该文件的作用不只是控制数据包，还有其他很多配置项.例如<code>https://github.com/threatexpress/malleable-c2</code>这个项目就是将通信过程伪造成请求jquery。使用者也可以根据自己想要伪造的数据包去进行DIY。</p>
+<p>​		顺便介绍一下agscript这个脚本，这个不起眼的小脚本在teamserver启动后是可以作为一个用户进行登录的，理论上在客户端做的事情，他都能实现，<code>./agscript [host] [port] [user] [pass] &lt;/path/to/file.cna&gt;</code>，我么可以控制file.cna让这个用户挂载不同的脚本，然后通过脚本去实现一些受害者上线之后 的默认操作，比如说结合通知推送平台server酱或pushplus和python脚本制作一个上线自动通知的机器人，或者制作一个上线自动进程迁移的脚本，进程注入到系统软件中。</p>
+<p>​		以上操作和功能经作者亲身验证都是切实可行的，但是为什么没有大量的配置过程截图和成果截图，因为VPS被封了！！！我的小儿科操作被VPS厂商发现了。</p>
+<p>​		所以经过一轮思考之后，之后的技术实践想使用NPS+上面这套流程试试VPS厂家还能不能检测到。</p>
+<h2 id="简单说下我使用的免杀生成器和实践成果">简单说下我使用的免杀生成器和实践成果</h2>
+<p>​		其实能绕过常见的杀软检测手段就可以做到基本的免杀，<code>https://github.com/Gality369/CS-Loader</code>这是一个免杀生成的开源项目，个人感觉这个过程比较符合绕过一下杀软的标准思路。</p>
+<p>​		大致的使用流程就是：</p>
+<p>1.使用CS自己的模块生成一个C的payload</p>
+<p>2.将payload通过python和你自定义的key进行加密，然后和一张图片生成图片马</p>
+<p>3.找一个不会压缩图片的图床把图片马上传上去</p>
+<p>4.将图片马的地址和key填入go文件中生成最终的exe</p>
+<p>​		然后就会得到一个可以过火绒和Windows Defender实时检测的面杀马，配合之前的设置可以做到CDN上线，机器人企业微信通知和自动进程迁移。</p>
+<p>​		可以看到连续的两个上线通知，第一个是恶意exe的上线通知，第二个是进程迁移之后会开启一个新的session。</p>
+<img src="https://s1.ax1x.com/2022/05/31/X3fvsx.jpg" alt="IMG_28D989991C9A-1" style="zoom:33%;" />]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[CTF杂项之图片]]></title>
+        <id>https://01xuan10.github.io/CReWZ5fvY/</id>
+        <link href="https://01xuan10.github.io/CReWZ5fvY/">
+        </link>
+        <updated>2022-10-27T01:28:22.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="杂项中图片题的想法">杂项中图片题的想法</h2>
+<p>在CTF杂项中，图片题的占比还是比较大的，因为图片的玩法比较多种多样，而且比较容易和其他的知识点进行结合，比如说图片解压之后可以释放其他类型的文件，然后和图片结合考知识点。</p>
+<h2 id="单纯为了隐藏文件">单纯为了隐藏文件</h2>
+<p>一般情况下拿到图片题如果没有特别明确的提示，常使用的就是先使用binwalk命令来查看图片有没有什么隐藏文件。<br>
+以这道题为例，题目的名字叫锦囊妙计，提供了3个锦囊并且题目提示依次打开三个锦囊，很明显是一个wifi链接的握手包，并且题目中提供了握手包的爆破字典，但是没有提供握手包，所以怀疑最后面的cap.png文件中含有我们需要爆破的握手包。<br>
+<img src="https://01xuan10.github.io//post-images/1668734978811.png" alt="" loading="lazy"><br>
+故用binwalk查看文件信息,可以看到文件信息的第三行有一个li bpcap capture file。<br>
+<img src="https://01xuan10.github.io//post-images/1668735017613.png" alt="" loading="lazy"><br>
+然后我们可以用dd命令将这个文件分离出来<br>
+<img src="https://01xuan10.github.io//post-images/1668735028078.png" alt="" loading="lazy"><br>
+接着使用爆破的工具对握手包进行爆破就可以得到最终的flag了。</p>
+<h2 id="隐藏文件的同时提供一些题目信息">隐藏文件的同时提供一些题目信息</h2>
+<p>以上是图片的用处只是作为一个文件的载体作为迷惑做题者的用处，但是图片也可以结合图片隐写作为题目的一个要素出现。<br>
+比如说这道题题目是八只鸟，附了一张图打开里面只有五只鸟，所以考虑是不是通过图片的信息隐藏了一部分图片导致图片文件显示不全。<br>
+<img src="https://01xuan10.github.io//post-images/1668735043476.png" alt="" loading="lazy"><br>
+使用010Editor编辑器对文件头信息进行修改。先查看文件的基本信息中的宽高，比如题中的图片高度为543，转换为16进制的高度为021F，	然后就直接在010Editor中搜索这个16进制然后修改大一点就可以显示全部的图片了。<br>
+<img src="https://01xuan10.github.io//post-images/1668735053614.png" alt="" loading="lazy"><br>
+<img src="https://01xuan10.github.io//post-images/1668735060806.png" alt="" loading="lazy"><br>
+<img src="https://01xuan10.github.io//post-images/1668735078729.png" alt="" loading="lazy"><br>
+可以看到显示了一段不是flag的字符，然后用压缩软件打开图片使用该段字符作为解压缩的密码就可以解压出flag.txt了。</p>
+<h2 id="其他的一些隐藏方式">其他的一些隐藏方式</h2>
+<p>这样就引申出了许多文件头隐藏信息的方式，例如将有效信息直接放在图片基础信息字段之后。<br>
+<img src="https://01xuan10.github.io//post-images/1668735098439.jpeg" alt="" loading="lazy"><br>
+还有些题通过修改文件头信息让操作系统不能正确识别文件类型达到无法打开解析的目的，网上可以搜到很多的文件格式的文件头标识<a href="https://blog.csdn.net/ccj2020/article/details/87603903">https://blog.csdn.net/ccj2020/article/details/87603903</a>。<br>
+或者利用exif信息来隐藏信息：<br>
+<img src="https://01xuan10.github.io//post-images/1668735109936.jpeg" alt="" loading="lazy"></p>
+<h2 id="双图问题">双图问题</h2>
+<p>还有一种比较典型的双图片的题目，也是利用RGB图层更改的方式来隐藏信息,通常会给出两张肉眼无法区分的图片，放入stegslove中进行RGB图层处理，在SUB(R,G,B separate)发现了一张模糊二维码：<br>
+例如攻防世界的进阶题中有一道a_goog_idea,题目给了一个压缩包，解压后是一张tom的图片，然后使用foremost将图片中隐藏的压缩包自动分离出来，解压后是两张一模一样的图片，且有一个文本提示：<br>
+<img src="https://01xuan10.github.io//post-images/1668735121496.png" alt="" loading="lazy"><br>
+使用stegslove将两张图片合并，但是只能看到零星的红色的小点，<br>
+<img src="https://01xuan10.github.io//post-images/1668735135020.png" alt="" loading="lazy"><br>
+转换一下色道可以得到一张二维码，扫描二维码即可得到flag<br>
+<img src="https://01xuan10.github.io//post-images/1668735146691.png" alt="" loading="lazy"></p>
+<h2 id="瞎扯">瞎扯</h2>
+<p>当然还有很多的典型的题型还没有涉及到，之后遇到再做补充</p>
+]]></content>
+    </entry>
+</feed>
